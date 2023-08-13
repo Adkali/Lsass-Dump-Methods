@@ -1,5 +1,6 @@
 # Methods to Dump LSASS
-
+Craft a comprehensive guide detailing various methods for dumping the LSASS.<br>
+I think This will be a valuable one and will make people stay updated on new techniques.
 ## 1. Procdump:
 Procdump is a part of Microsoft Sysinternals and a command-line<br>utility programs for producing dumps of any running process<br>
 We can leverage it and use it fo DUMP lsass process by the following:<br>
